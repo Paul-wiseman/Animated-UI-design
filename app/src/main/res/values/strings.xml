@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">animated UI design</string>
+    <string name="ola_machiav">Ola Machiavelli</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="product_fragment">product fragment</string>
+    <string name="payment_fragment">payment fragment</string>
+    <string name="history_fragment">history fragment</string>
+    <string name="support_fragment">support fragment</string>
+
+    <string name="special_offerfig">$ 234,810</string>
+    <string name="tv_Specialoffers">Special offers</string>
+
+
+
+</resources>
