@@ -10,23 +10,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.decagon.paul.animatedUIDesign.model.PartnersModel
 import com.decagon.paul.animatedUIDesign.R
 
-class PartnersAdapter(val data : List<PartnersModel>):RecyclerView.Adapter<PartnersAdapter.DebitCardViewHolder>() {
+class PartnersAdapter(val data: List<PartnersModel>) :
+    RecyclerView.Adapter<PartnersAdapter.DebitCardViewHolder>() {
 
-
-    inner class DebitCardViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    /*ViewHolder as an inner class of the recyclerview adapter*/
+    inner class DebitCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var name: TextView = itemView.findViewById(R.id.company_name)
         private var discount: TextView = itemView.findViewById(R.id.discount)
-        private  var productType:TextView = itemView.findViewById(R.id.product_type)
-        private  var shoppingLogo:ImageView = itemView.findViewById(R.id.shoping_logo)
+        private var productType: TextView = itemView.findViewById(R.id.product_type)
+        private var shoppingLogo: ImageView = itemView.findViewById(R.id.shoping_logo)
 
         fun bind(partnersModel: PartnersModel) {
-            var  context = shoppingLogo.context
+            var context = shoppingLogo.context
             name.text = partnersModel.name
             discount.text = partnersModel.discaount
             productType.text = partnersModel.products
-        //shoppingLogo.setImageDrawable(getResources().getDrawable(R.drawable.image_name))
-            shoppingLogo.setImageDrawable(ContextCompat.getDrawable(context,partnersModel.image))
-        // setImageDrawable(getResources().getDrawable(R.drawable.image_name))
+            shoppingLogo.setImageDrawable(ContextCompat.getDrawable(context, partnersModel.image))
         }
 
     }
