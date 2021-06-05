@@ -1,4 +1,4 @@
-# Payment-UI-design-with-splashScreen
+# Payment-App-design-with-splashScreen
 A modern payment UI design with an easy to understand user interface
 
 ## Development
