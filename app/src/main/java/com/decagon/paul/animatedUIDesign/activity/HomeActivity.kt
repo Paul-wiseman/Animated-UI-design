@@ -8,22 +8,18 @@ import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.RemoteViews
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.CompositePageTransformer
-import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.decagon.paul.animatedUIDesign.adapters.PartnersAdapter
-import com.decagon.paul.animatedUIDesign.model.PartnersModel
 import com.decagon.paul.animatedUIDesign.R
 import com.decagon.paul.animatedUIDesign.adapters.DebitCardViewAdapter
-import com.decagon.paul.animatedUIDesign.model.AccountData
+import com.decagon.paul.animatedUIDesign.adapters.PartnersAdapter
 import com.decagon.paul.animatedUIDesign.naviagationFragments.HistoryFragment
 import com.decagon.paul.animatedUIDesign.naviagationFragments.PaymentFragment
 import com.decagon.paul.animatedUIDesign.naviagationFragments.ProductFragment
@@ -32,15 +28,12 @@ import com.decagon.paul.animatedUIDesign.utils.DummyDataGenerator
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import me.relex.circleindicator.CircleIndicator3
 
-
 class HomeActivity : AppCompatActivity() {
-
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
 
         /*codes for notification */
         lateinit var notificationManager: NotificationManager
@@ -49,7 +42,6 @@ class HomeActivity : AppCompatActivity() {
         var channelID = "Paul"
         var desc = "Notifications"
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
 
         /*OnclickListner to send notification */
         var btnnotification: ImageButton = findViewById(R.id.btnnotification)
@@ -66,15 +58,15 @@ class HomeActivity : AppCompatActivity() {
             )
 
             /*A configurations for what the notification is going to do using the phones resource*/
-            notificationChannel.enableLights(true)  //turn the phone light on
-            notificationChannel.lightColor = Color.GRAY     // the lightcolor of the notification
+            notificationChannel.enableLights(true) // turn the phone light on
+            notificationChannel.lightColor = Color.GRAY // the lightcolor of the notification
             notificationChannel.enableVibration(true) // the notification is able to make the make the phone vibrate
-            notificationManager.createNotificationChannel(notificationChannel)// the configuration of the notification channel
+            notificationManager.createNotificationChannel(notificationChannel) // the configuration of the notification channel
             Builder = Notification.Builder(this, channelID)
-                .setContentTitle("Good Day, Click me")// Title of the notification
+                .setContentTitle("Good Day, Click me") // Title of the notification
                 .setContentText("How Far Darot") // the notification display text
                 .setChannelId(channelID) // Notification id
-                .setSmallIcon(R.drawable.ic_baseline_access_alarm_24)//
+                .setSmallIcon(R.drawable.ic_baseline_access_alarm_24) //
                 .setLargeIcon(
                     BitmapFactory.decodeResource(
                         this.resources,
@@ -85,7 +77,6 @@ class HomeActivity : AppCompatActivity() {
             notificationManager.notify(1234, Builder.build())
         }
 
-
         val viewPager2 = findViewById<ViewPager2>(R.id.view_pager2)
         val indicator3 = findViewById<CircleIndicator3>(R.id.indicator)
         viewPager2.adapter = DebitCardViewAdapter(DummyDataGenerator.accounts())
@@ -95,10 +86,8 @@ class HomeActivity : AppCompatActivity() {
             clipToPadding = false
             clipToPadding = false
             offscreenPageLimit = 2
-
         }
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-
 
         /*recyclerview adapter*/
 
@@ -109,7 +98,6 @@ class HomeActivity : AppCompatActivity() {
 
         /*bottom circle indicator*/
         indicator3.setViewPager(viewPager2)
-
 
         /*Codes for bottom navigation view*/
         val bottomViewNav = findViewById<BottomNavigationView>(R.id.bottom_navigationView)
@@ -133,14 +121,5 @@ class HomeActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fl_fragment, fragment)
             commit()
-
-
         }
 }
-
-
-
-
-
-
-
